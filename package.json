@@ -1,7 +1,7 @@
 {
   "name": "@svelterm/ui",
   "version": "0.1.0",
-  "description": "UI components for SvelTERM — terminal and browser from the same source",
+  "description": "UI components for SvelTERM \u2014 terminal and browser from the same source",
   "type": "module",
   "license": "MIT",
   "author": "Tom Yandell",
@@ -13,5 +13,33 @@
     "@types/node": "^25.6.0",
     "svelte": "file:../svelte-fork/packages/svelte",
     "typescript": "^6.0.2"
+  },
+  "exports": {
+    ".": {
+      "svelte": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./*.svelte": {
+      "svelte": "./src/*.svelte",
+      "default": "./src/*.svelte"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test dist/test/*.test.js"
+  },
+  "peerDependencies": {
+    "svelte": ">=5",
+    "@svelterm/core": ">=0.11.0"
+  },
+  "peerDependenciesMeta": {
+    "@svelterm/core": {
+      "optional": true
+    }
   }
 }
