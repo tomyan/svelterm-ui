@@ -11,6 +11,9 @@ renderer setup (nothing is pre-compiled, so the components pick up your
 npm install @svelterm/ui
 ```
 
+Live storybook with interactive examples:
+[svelterm.dev/ui](https://svelterm.dev/ui).
+
 ## Components
 
 - **`Dialog`** — floating modal with focus trap and Escape-to-close.
