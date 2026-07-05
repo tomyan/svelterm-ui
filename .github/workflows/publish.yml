@@ -1,0 +1,26 @@
+name: Publish to npm
+
+# Trusted Publishing (OIDC) — no stored token. The trusted publisher is
+# configured on the @svelterm/ui package settings on npmjs.com
+# (org: tomyan, repo: svelterm-ui, workflow: publish.yml).
+on:
+  release:
+    types: [published]
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # required for OIDC trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      # Trusted publishing (OIDC) needs a recent npm (>= 11.5.1)
+      - run: npm install -g npm@latest
+      # The package ships .svelte source (no build); publish packs it.
+      - run: npm stage publish --provenance --access public
