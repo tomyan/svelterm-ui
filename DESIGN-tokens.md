@@ -36,6 +36,7 @@ container themes a subtree.
 | `--svt-warning` | `yellow` | warnings, attention states |
 | `--svt-border` | `light-dark(#bbbbbb, #444444)` | component frame colour |
 | `--svt-border-family` | `single` | border glyph family: single/rounded/double/heavy |
+| `--svt-focus` | `yellow` | keyboard-focus highlight (promoted during slice 4 — terminals have no hover, so focus is a first-class state) |
 
 Terminal-specific departures from shadcn: no `--radius` (the border
 *family* is the terminal's corner personality, so it's a first-class
@@ -44,7 +45,7 @@ parsing and works today); colours may be ANSI names, hex, or
 `light-dark()`, and defaults use `light-dark()` so both schemes work
 untouched.
 
-Deliberately small: eleven tokens. A component needing something outside
+Deliberately small: twelve tokens. A component needing something outside
 the set uses a hardcoded value until a second component needs it — tokens
 are promoted by demand, not speculation.
 
@@ -90,6 +91,10 @@ question below.
   making the existing seven components one system first.
 
 ## Slices
+
+Status: slice 1 shipped as 0.2.0; slices 2–6 landed together as 0.3.0
+(one promotion instead of five — the per-slice release discipline
+resumes for future work).
 
 Each slice: red tests → green → README/docs → CHANGELOG → staged
 release. Tests work at the compiled-CSS level (the package has no

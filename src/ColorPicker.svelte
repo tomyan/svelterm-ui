@@ -116,7 +116,7 @@
     .mode-tabs button {
         @media (display-mode: browser) {
             padding: 0.25rem 0.75rem;
-            border: 1px solid #555;
+            border: 1px solid var(--svt-border, #555);
             border-radius: 4px;
             background: transparent;
             color: inherit;
@@ -132,9 +132,9 @@
 
     .mode-tabs button.active {
         @media (display-mode: browser) {
-            background: #48cae4;
+            background: var(--svt-accent, #48cae4);
             color: #000;
-            border-color: #48cae4;
+            border-color: var(--svt-accent, #48cae4);
         }
 
         @media (display-mode: terminal) {

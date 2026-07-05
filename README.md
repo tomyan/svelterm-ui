@@ -59,11 +59,47 @@ container to theme a subtree.
 | `--svt-warning` | `yellow` | warnings, attention states |
 | `--svt-border` | `light-dark(#bbbbbb, #444444)` | component frame colour |
 | `--svt-border-family` | `single` | border glyphs: `single`/`rounded`/`double`/`heavy` |
+| `--svt-focus` | `yellow` | keyboard-focus highlight (terminals have no hover) |
 
-Values may be ANSI colour names, hex, or `light-dark()`. Adoption so
-far: Dialog (accent, background, border-family — its border-family
-default is `double`); remaining components migrate per
-DESIGN-tokens.md.
+Values may be ANSI colour names, hex, or `light-dark()`. All
+components consume the set; defaults per component preserve its
+zero-config appearance (Dialog's border-family default is `double`,
+Toaster's `rounded`). Tokens are plain CSS custom properties, so the
+same theming works in browser display mode.
+
+### Theme recipes
+
+Copy-paste starting points — every component follows:
+
+```css
+/* Monochrome: no colour, structure from weight and borders */
+:root {
+    --svt-accent: light-dark(#222222, #dddddd);
+    --svt-muted: light-dark(#999999, #555555);
+    --svt-selection-background: light-dark(#dddddd, #333333);
+    --svt-selection-foreground: light-dark(#000000, #ffffff);
+    --svt-success: light-dark(#222222, #dddddd);
+    --svt-destructive: light-dark(#222222, #dddddd);
+    --svt-warning: light-dark(#222222, #dddddd);
+    --svt-focus: light-dark(#000000, #ffffff);
+    --svt-border-family: single;
+}
+
+/* Solarized */
+:root {
+    --svt-background: light-dark(#fdf6e3, #002b36);
+    --svt-accent: #268bd2;
+    --svt-muted: light-dark(#93a1a1, #586e75);
+    --svt-selection-background: light-dark(#eee8d5, #073642);
+    --svt-selection-foreground: light-dark(#586e75, #93a1a1);
+    --svt-success: #859900;
+    --svt-destructive: #dc322f;
+    --svt-warning: #b58900;
+    --svt-focus: #cb4b16;
+    --svt-border: light-dark(#93a1a1, #586e75);
+    --svt-border-family: rounded;
+}
+```
 
 ## Helpers
 

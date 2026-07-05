@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.3.0 — 2026-07-05
+
+All components on design tokens (slices 2–6 of DESIGN-tokens.md).
+
+### Added
+
+- **Toaster, List, FuzzyPicker, Tabs, and the colour-picker family**
+  now consume the token set; defaults preserve each component's
+  previous appearance exactly. Colour-picker browser-mode frames and
+  labels theme from the same tokens (they are plain CSS vars).
+- **`--svt-focus`** token — keyboard-focus highlight (default
+  `yellow`); terminals have no hover, so focus is a first-class state.
+- **`navigateList()`** — headless list keyboard navigation (arrows
+  with wraparound per orientation, Home/End, Enter-to-activate),
+  exported and now backing List, FuzzyPicker, and Tabs.
+- **Tabs keyboard navigation** — ArrowLeft/ArrowRight move the active
+  tab (previously mouse/Tab-focus only).
+- **Theme recipes** — copy-paste monochrome and Solarized `:root`
+  palettes in the README.
+
+
 ## 0.2.0 — 2026-07-05
 
 Design tokens arrive (slice 1 of DESIGN-tokens.md).

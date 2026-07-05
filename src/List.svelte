@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { moveSelection } from './fuzzy.js'
+    import { navigateList } from './list-navigation.js'
 
     let {
         items = [] as string[],
@@ -15,11 +15,9 @@
 
     function onkeydown(event: any) {
         const key = event.data?.key ?? event.key
-        if (key === 'ArrowDown') selected = moveSelection(items.length, selected, 1)
-        else if (key === 'ArrowUp') selected = moveSelection(items.length, selected, -1)
-        else if (key === 'Enter' && items[selected] !== undefined) {
-            onselect?.(items[selected], selected)
-        }
+        const action = navigateList(key, items.length, selected)
+        if (action === 'activate') onselect?.(items[selected], selected)
+        else if (typeof action === 'number') selected = action
     }
 </script>
 
@@ -52,17 +50,17 @@
     }
 
     .item.selected {
-        background: light-dark(#d5e5f5, #26415c);
-        color: light-dark(#0a3055, #cfe6ff);
+        background: var(--svt-selection-background, light-dark(#d5e5f5, #26415c));
+        color: var(--svt-selection-foreground, light-dark(#0a3055, #cfe6ff));
         font-weight: bold;
     }
 
     .item:focus {
-        color: cyan;
+        color: var(--svt-accent, cyan);
     }
 
     .empty {
-        color: light-dark(#888888, #666666);
+        color: var(--svt-muted, light-dark(#888888, #666666));
         padding: 0 1cell;
     }
 </style>

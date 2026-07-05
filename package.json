@@ -1,6 +1,6 @@
 {
   "name": "@svelterm/ui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "UI components for SvelTERM — terminal and browser from the same source",
   "type": "module",
   "license": "MIT",

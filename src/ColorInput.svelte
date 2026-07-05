@@ -44,7 +44,7 @@
             width: 1.5em;
             height: 1.5em;
             border-radius: 3px;
-            border: 1px solid #555;
+            border: 1px solid var(--svt-border, #555);
         }
 
         @media (display-mode: terminal) {

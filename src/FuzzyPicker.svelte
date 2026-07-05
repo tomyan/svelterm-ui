@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { fuzzyFilter, moveSelection } from './fuzzy.js'
+    import { fuzzyFilter } from './fuzzy.js'
+    import { navigateList } from './list-navigation.js'
 
     let {
         items = [] as string[],
@@ -25,9 +26,9 @@
 
     function onkeydown(event: any) {
         const key = event.data?.key ?? event.key
-        if (key === 'ArrowDown') selected = moveSelection(results.length, selected, 1)
-        else if (key === 'ArrowUp') selected = moveSelection(results.length, selected, -1)
-        else if (key === 'Enter' && results[selected]) onpick?.(results[selected].item)
+        const action = navigateList(key, results.length, selected)
+        if (action === 'activate') onpick?.(results[selected].item)
+        else if (typeof action === 'number') selected = action
     }
 </script>
 
@@ -51,8 +52,8 @@
     .picker {
         display: flex;
         flex-direction: column;
-        border: rounded;
-        border-color: light-dark(#999999, #555555);
+        border: var(--svt-border-family, rounded);
+        border-color: var(--svt-border, light-dark(#999999, #555555));
         padding: 0 1cell;
     }
 
@@ -71,11 +72,12 @@
     }
 
     .result.selected {
-        background: light-dark(#d5e5f5, #26415c);
+        background: var(--svt-selection-background, light-dark(#d5e5f5, #26415c));
+        color: var(--svt-selection-foreground, light-dark(#0a3055, #cfe6ff));
         font-weight: bold;
     }
 
     .empty {
-        color: light-dark(#888888, #666666);
+        color: var(--svt-muted, light-dark(#888888, #666666));
     }
 </style>

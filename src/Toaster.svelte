@@ -32,22 +32,22 @@
     }
 
     .toast {
-        border: rounded;
+        border: var(--svt-border-family, rounded);
         padding: 0 1cell;
-        background: light-dark(#f5f5f0, #1a1d23);
+        background: var(--svt-background, light-dark(#f5f5f0, #1a1d23));
     }
 
     .toast.info {
-        border-color: cyan;
+        border-color: var(--svt-accent, cyan);
     }
 
     .toast.success {
-        border-color: green;
-        color: green;
+        border-color: var(--svt-success, green);
+        color: var(--svt-success, green);
     }
 
     .toast.error {
-        border-color: red;
-        color: red;
+        border-color: var(--svt-destructive, red);
+        color: var(--svt-destructive, red);
     }
 </style>
