@@ -33,15 +33,15 @@
         z-index: 10;
         display: flex;
         flex-direction: column;
-        border: double;
-        border-color: cyan;
-        background: light-dark(#f5f5f0, #1a1d23);
+        border: var(--svt-border-family, double);
+        border-color: var(--svt-accent, cyan);
+        background: var(--svt-background, light-dark(#f5f5f0, #1a1d23));
         padding: 0 1cell 1cell 1cell;
     }
 
     .title {
         font-weight: bold;
-        color: cyan;
+        color: var(--svt-accent, cyan);
         text-align: center;
     }
 
