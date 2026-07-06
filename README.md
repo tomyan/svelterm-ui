@@ -1,5 +1,10 @@
 # @svelterm/ui
 
+> **Experimental.** These components are early and their APIs, markup,
+> and design tokens will change without notice between releases. Try
+> them out, but don't build on them yet — [@svelterm/core](https://www.npmjs.com/package/@svelterm/core)
+> is the stable surface.
+
 Component library for [svelterm](https://svelterm.dev) — terminal and
 browser from the same Svelte source.
 
@@ -11,8 +16,10 @@ renderer setup (nothing is pre-compiled, so the components pick up your
 npm install @svelterm/ui
 ```
 
-Live storybook with interactive examples:
-[svelterm.dev/ui](https://svelterm.dev/ui).
+An interactive storybook lives in the
+[svelterm-site](https://github.com/tomyan/svelterm-site) repo at `/ui` —
+local preview only (`npm run dev`) while the components are
+experimental.
 
 ## Components
 
