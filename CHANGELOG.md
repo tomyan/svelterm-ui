@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1 — 2026-07-06
+
+### Changed
+
+- **Marked experimental.** README now carries a disclaimer: component
+  APIs, markup, and design tokens may change without notice between
+  releases; @svelterm/core is the stable surface. The interactive
+  storybook is local-preview only in svelterm-site while that holds.
+
 ## 0.3.0 — 2026-07-05
 
 All components on design tokens (slices 2–6 of DESIGN-tokens.md).
